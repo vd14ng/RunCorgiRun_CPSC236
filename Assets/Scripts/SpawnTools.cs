@@ -9,7 +9,9 @@ public static class SpawnTools
 
         return new Vector3(randomX, randomY, 10);
     }
-
+    
+    // picks a random spot on your screen by using
+    // RandomLocationScreenSpace, but converts it
     public static Vector3 RandomLocationWorldSpace()
     {
         Vector3 randomScreenLocation = RandomLocationScreenSpace();
