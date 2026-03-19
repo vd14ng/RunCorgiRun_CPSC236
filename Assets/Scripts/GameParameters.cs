@@ -19,4 +19,8 @@ public static class GameParameters
     public static float PillSecondsOnScreen = 2f;
     public static float PillMinimumSecondsToWait = 4f;
     public static float PillMaximumSecondsToWait = 6f;
+    
+    public static float MoonshineSecondsOnScreen = 5f;
+    public static float MoonshineMinimumSecondsToWait = 0.5f;
+    public static float MoonshineMaximumSecondsToWait = 5f;
 }

@@ -17,7 +17,7 @@ public class TimedObjectPlacer : MonoBehaviour
         }
     }
     
-    // waits before spawning in another BEER SPRITE
+    // waits before spawning in another SPRITE
     IEnumerator CountdownUntilCreation()
     {
         isOkToCreate = false;
@@ -30,8 +30,8 @@ public class TimedObjectPlacer : MonoBehaviour
         isOkToCreate = true;
     }
 
-    // places a BEER SPRITE at a random location
-    private void Place()
+    // places a SPRITE at a random location
+    public virtual void Place()
     {
         Instantiate(Prefab, SpawnTools.RandomLocationWorldSpace(), Quaternion.identity); 
     }
