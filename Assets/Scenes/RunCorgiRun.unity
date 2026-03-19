@@ -511,6 +511,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2748e6c178eb440c78cd2073c619e8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Corgi
+  NormalSprite: {fileID: 21300000, guid: df2ae48567e5748c99f60f6acc51fe11, type: 3}
+  DrunkSprite: {fileID: 21300000, guid: 80f5182e1be224eedac2238986e30475, type: 3}
 --- !u!212 &1737622250
 SpriteRenderer:
   m_ObjectHideFlags: 0
