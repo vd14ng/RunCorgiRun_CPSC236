@@ -15,25 +15,25 @@ public class KeyboardInput : MonoBehaviour
         if (keyboard.wKey.isPressed)
         {
             // move up
-            Corgi.Move(Vector2.up);
+            Corgi.MoveManually(Vector2.up);
         }
         // if pressed "s"
         if (keyboard.sKey.isPressed)
         {
             // move down
-            Corgi.Move(Vector2.down);
+            Corgi.MoveManually(Vector2.down);
         }
         // if pressed "a"
         if (keyboard.aKey.isPressed)
         {
             // move left
-            Corgi.Move(Vector2.left);
+            Corgi.MoveManually(Vector2.left);
         }
         // if pressed "d"
         if (keyboard.dKey.isPressed)
         {
             // move right
-            Corgi.Move(Vector2.right);
+            Corgi.MoveManually(Vector2.right);
         }
 
         if (keyboard.spaceKey.wasPressedThisFrame)

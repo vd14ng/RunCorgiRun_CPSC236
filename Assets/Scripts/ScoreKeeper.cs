@@ -3,16 +3,16 @@ using UnityEngine;
 public static class ScoreKeeper
 {
     private static int score = 0;
-    public static void Add(int amount)
+    public static void AddPoint()
     {
-        score = score + amount;
+        score++;
         // MonoBehaviour.print(score);
     }
     public static int GetScore()
     {
         return score;
     }
-    public static void Reset()
+    public static void ResetScore()
     {
         score = 0;
     }

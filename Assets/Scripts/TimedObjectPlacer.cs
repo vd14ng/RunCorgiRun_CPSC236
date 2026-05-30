@@ -23,7 +23,6 @@ public class TimedObjectPlacer : MonoBehaviour
         isOkToCreate = false;
         
         float secondsToWait = Random.Range(minimumSecondsToWait, maximumSecondsToWait);
-        
         yield return new WaitForSeconds(secondsToWait);
         Place();
 
@@ -31,7 +30,7 @@ public class TimedObjectPlacer : MonoBehaviour
     }
 
     // places a SPRITE at a random location
-    public virtual void Place()
+    protected virtual void Place()
     {
         Instantiate(Prefab, SpawnTools.RandomLocationWorldSpace(), Quaternion.identity); 
     }

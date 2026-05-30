@@ -12,6 +12,9 @@ public class Corgi : MonoBehaviour
     private bool isPlastered = false;
     private Coroutine soberUpCoroutine;
 
+    private int randomMoveCounter = 0;
+    private int lastRandomDirection = 0;
+
     public void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -27,7 +30,14 @@ public class Corgi : MonoBehaviour
 
     private void MoveRandomly()
     {
-        int direction = Random.Range(0, 4);
+        int direction = lastRandomDirection;
+        
+        if (randomMoveCounter == 0)
+        {
+            direction = Random.Range(0, 4);
+            randomMoveCounter = Random.Range(GameParameters.CorgiMinimumRandomMoveLength, GameParameters.CorgiMaximumRandomMoveLength);
+            lastRandomDirection = direction;
+        }
         switch (direction)
         {
             case 0:
@@ -43,15 +53,24 @@ public class Corgi : MonoBehaviour
                 Move(new Vector3(0, -1));
                 break;
         }
+
+        randomMoveCounter--;
     }
 
+    public void MoveManually(Vector2 direction)
+    {
+        if (isPlastered)
+            return;
+        Move(direction);
+    }
+    
     public void Move(Vector2 direction)
     {
         direction = ApplyDrunkeness(direction);
+        
         FaceCorrectDirection(direction);
         
         Vector2 movementAmount = GameParameters.CorgiMoveSpeed * direction * Time.deltaTime;
-        
         spriteRenderer.transform.Translate(movementAmount.x, movementAmount.y, 0);
 
         spriteRenderer.transform.position = SpriteTools.ConstrainToScreen(spriteRenderer);
@@ -79,13 +98,21 @@ public class Corgi : MonoBehaviour
 
         if (other.tag == "Bone")
         {
-            print("bone hit");
+            AddPointToScore();
+            Destroy(other.gameObject);
         }
 
         if (other.tag == "Pill")
         {
-            print("pill hit");
+            SoberUp();
+            Destroy(other.gameObject);
         }
+    }
+
+    private void AddPointToScore()
+    {
+        ScoreKeeper.AddPoint();
+        print("Score is: " + ScoreKeeper.GetScore());
     }
 
     public void OnCollisionEnter2D(Collision2D other)

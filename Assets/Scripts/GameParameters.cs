@@ -5,6 +5,8 @@ public static class GameParameters
 {
     public static float CorgiMoveSpeed = 5f;
     public static float CorgiDrunkSeconds = 6f;
+    public static int CorgiMinimumRandomMoveLength = 25;
+    public static int CorgiMaximumRandomMoveLength = 75;
 
     public static float PoopSecondsOnScreen = 5f;
 
